@@ -14,10 +14,11 @@
 {
     _text = text;
     CGFloat windowWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat labeWidth = windowWidth - 10;//（ 10 为左右边距）
         /** 这里计算label的宽的时候 一定不要有偏差 否则算出的高度不准确*/
-    _textHeight = [text boundingRectWithSize:CGSizeMake(windowWidth - 10, MAXFLOAT)
+    _textHeight = [text boundingRectWithSize:CGSizeMake(labeWidth, MAXFLOAT)
                                      options:NSStringDrawingUsesLineFragmentOrigin
-                                  attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]}
+                                  attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} // font 要和lable的font保持一致
                                      context:nil].size.height + 1;//(末尾 这个 1  是有可能计算存在误差,为矫正数值,可根据具体情况调整)
 }
 
